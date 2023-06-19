@@ -72,6 +72,8 @@ RUN apt-get update \
 RUN curl -sL https://deb.nodesource.com/setup_16.x | bash -
 RUN apt-get install -y nodejs
 RUN npm install -g npm@latest
+#set the node path for execution
+ENV PATH="/usr/local/bin:${PATH}"
 RUN node -v
 RUN npm -v
 
