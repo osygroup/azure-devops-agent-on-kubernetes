@@ -67,15 +67,6 @@ RUN echo \
       $(lsb_release -cs) stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
 RUN apt-get update \
     && apt-get install -y docker-ce-cli
-    
-#install Node
-RUN curl -sL https://deb.nodesource.com/setup_16.x | bash -
-RUN apt-get install -y nodejs
-RUN npm install -g npm@latest
-#set the node path for execution
-ENV PATH="/usr/local/bin:${PATH}"
-RUN node -v
-RUN npm -v
 
 RUN apt-get update && apt-get -y upgrade
 
